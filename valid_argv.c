@@ -6,13 +6,13 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 23:17:36 by bwach             #+#    #+#             */
-/*   Updated: 2023/11/29 00:01:50 by bwach            ###   ########.fr       */
+/*   Updated: 2023/11/29 00:06:57 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	error_msg(char *msg)
+void	error_msg(char *msg)
 {
 	write(1, "Error\n", 6);
 	exit(0);
@@ -28,7 +28,7 @@ static void	ft_free_str(char **str)
 }
 
 //Check if number
-static int	ft_isnum(char *str)
+int	ft_isnum(char *str)
 {
 	int	i;
 

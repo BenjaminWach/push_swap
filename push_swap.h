@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:05:08 by bwach             #+#    #+#             */
-/*   Updated: 2023/11/28 23:12:07 by bwach            ###   ########.fr       */
+/*   Updated: 2023/11/29 00:07:03 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,9 @@ typedef struct s_list
 //main
 int	main(int argc, char *argv[]);
 
-//secondaries
-#endif 
+//utils
+void	error_msg(char *msg);
+int		ft_isnum(char *str);
+void	valid_argv(int argc, char *argv[]);
+
+#endif

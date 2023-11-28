@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:08:39 by bwach             #+#    #+#             */
-/*   Updated: 2023/11/29 00:02:51 by bwach            ###   ########.fr       */
+/*   Updated: 2023/11/29 00:08:57 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	main(int argc, char *argv[])
 	i = 0;
 	*stack_a = NULL;
 	*stack_b = NULL;
+	stack_a = (t_list **)malloc(sizeof(t_list));
+	stack_b = (t_list **)malloc(sizeof(t_list));
 	if (argc <= 2)
 		error_msg("Error");
 	valid_argv(argc, **argv);
