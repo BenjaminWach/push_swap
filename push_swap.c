@@ -6,28 +6,22 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:08:39 by bwach             #+#    #+#             */
-/*   Updated: 2023/11/28 13:04:20 by bwach            ###   ########.fr       */
+/*   Updated: 2023/11/29 00:02:51 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	**push_swap(int **array)
+int	main(int argc, char *argv[])
 {
-	
-}
-
-void	*main(int argc, char *argv[])
-{
-	int	i;
+	int		i;
+	t_list	**stack_a;
+	t_list	**stack_b;
 
 	i = 0;
+	*stack_a = NULL;
+	*stack_b = NULL;
 	if (argc <= 2)
-		ft_printf("Please enter valid number of arguments.");
-	while (i <= argv[argc])
-	{
-		if (argv[i++] != isdigit)
-			return (write(1, "Error \n", 8));
-		return (push_swap(*argv[i++]));
-	}
+		error_msg("Error");
+	valid_argv(argc, **argv);
 }
