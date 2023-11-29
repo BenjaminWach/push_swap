@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 23:17:36 by bwach             #+#    #+#             */
-/*   Updated: 2023/11/29 00:06:57 by bwach            ###   ########.fr       */
+/*   Updated: 2023/11/29 14:05:57 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	ft_free_str(char **str)
 	int	i;
 
 	i = 0;
-	while (str[i] != NULL)
+	while (str[i] != '\0')
 		free(str[i++]);
 }
 
@@ -68,7 +68,7 @@ void	valid_argv(int argc, char *argv[])
 	while (arg[i]) //dans la boucle: on gere tous les cas d'erreurs
 	{
 		tmp = ft_atoi(arg[i]); //on change les chars en int
-		if (tmp < INT_MIN || tmp > INT_MAX)
+		if (tmp < -2147483648 || tmp > 2147483647)
 			error_msg("Error");
 		else if (!ft_isnum(arg[i])) //on check si c'est un nombre
 			error_msg("Error");
