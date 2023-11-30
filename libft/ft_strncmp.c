@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 11:05:08 by bwach             #+#    #+#             */
-/*   Updated: 2023/11/30 13:00:22 by bwach            ###   ########.fr       */
+/*   Created: 2023/10/24 14:22:13 by bwach             #+#    #+#             */
+/*   Updated: 2023/10/27 21:20:14 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-
-typedef struct s_list
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int				value;
-	int				val_index;
-	struct s_list	*next;
-}				t_list;
-
-/*main*/
-int		main(int argc, char *argv[]);
-
-//utils
-void	error_msg(char *msg);
-int		ft_isnum(char *str);
-void	valid_argv(int argc, char *argv[]);
-
-#endif
+	while (*s1 && *s1 == *s2 && n > 0)
+	{
+		s1++;
+		s2++;
+		n--;
+	}
+	if (n == 0)
+		return (0);
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+}

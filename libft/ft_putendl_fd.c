@@ -1,36 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 11:05:08 by bwach             #+#    #+#             */
-/*   Updated: 2023/11/30 13:00:22 by bwach            ###   ########.fr       */
+/*   Created: 2023/10/25 22:28:29 by bwach             #+#    #+#             */
+/*   Updated: 2023/10/25 22:31:55 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-
-typedef struct s_list
+void	ft_putendl_fd(char *s, int fd)
 {
-	int				value;
-	int				val_index;
-	struct s_list	*next;
-}				t_list;
-
-/*main*/
-int		main(int argc, char *argv[]);
-
-//utils
-void	error_msg(char *msg);
-int		ft_isnum(char *str);
-void	valid_argv(int argc, char *argv[]);
-
-#endif
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
+}

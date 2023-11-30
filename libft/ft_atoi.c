@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 11:05:08 by bwach             #+#    #+#             */
-/*   Updated: 2023/11/30 13:00:22 by bwach            ###   ########.fr       */
+/*   Created: 2023/10/24 15:10:26 by bwach             #+#    #+#             */
+/*   Updated: 2023/10/29 19:49:25 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-
-typedef struct s_list
+int	ft_atoi(const char *str)
 {
-	int				value;
-	int				val_index;
-	struct s_list	*next;
-}				t_list;
+	size_t	i;
+	size_t	sign;
+	int		result;
 
-/*main*/
-int		main(int argc, char *argv[]);
-
-//utils
-void	error_msg(char *msg);
-int		ft_isnum(char *str);
-void	valid_argv(int argc, char *argv[]);
-
-#endif
+	i = 0;
+	sign = 1;
+	result = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == 32))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (ft_isdigit(str[i]))
+	{
+		result = result * 10 + (str[i] - 48);
+		i++;
+	}
+	return (result * sign);
+}

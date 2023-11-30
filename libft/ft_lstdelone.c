@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 11:05:08 by bwach             #+#    #+#             */
-/*   Updated: 2023/11/30 13:00:22 by bwach            ###   ########.fr       */
+/*   Created: 2023/10/26 19:27:54 by bwach             #+#    #+#             */
+/*   Updated: 2023/10/26 19:35:05 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-
-typedef struct s_list
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	int				value;
-	int				val_index;
-	struct s_list	*next;
-}				t_list;
-
-/*main*/
-int		main(int argc, char *argv[]);
-
-//utils
-void	error_msg(char *msg);
-int		ft_isnum(char *str);
-void	valid_argv(int argc, char *argv[]);
-
-#endif
+	if (!lst)
+		return ;
+	del(lst->content);
+	free(lst);
+}

@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 11:05:08 by bwach             #+#    #+#             */
-/*   Updated: 2023/11/30 13:00:22 by bwach            ###   ########.fr       */
+/*   Created: 2023/10/26 19:18:02 by bwach             #+#    #+#             */
+/*   Updated: 2023/10/27 20:41:40 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+//Ajoute l'element 'new' a la fin de la liste.
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-
-typedef struct s_list
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int				value;
-	int				val_index;
-	struct s_list	*next;
-}				t_list;
+	t_list	*tmp;
 
-/*main*/
-int		main(int argc, char *argv[]);
-
-//utils
-void	error_msg(char *msg);
-int		ft_isnum(char *str);
-void	valid_argv(int argc, char *argv[]);
-
-#endif
+	if (!new)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	tmp = ft_lstlast(*lst);
+	tmp->next = new;
+}

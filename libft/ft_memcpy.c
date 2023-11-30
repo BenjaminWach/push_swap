@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 11:05:08 by bwach             #+#    #+#             */
-/*   Updated: 2023/11/30 13:00:22 by bwach            ###   ########.fr       */
+/*   Created: 2023/10/24 11:18:18 by bwach             #+#    #+#             */
+/*   Updated: 2023/10/28 14:10:29 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include "libft/libft.h"
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-
-typedef struct s_list
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int				value;
-	int				val_index;
-	struct s_list	*next;
-}				t_list;
+	size_t			i;
+	char			*temp1;
+	char			*temp2;
 
-/*main*/
-int		main(int argc, char *argv[]);
-
-//utils
-void	error_msg(char *msg);
-int		ft_isnum(char *str);
-void	valid_argv(int argc, char *argv[]);
-
-#endif
+	i = 0;
+	temp1 = (char *)src;
+	temp2 = (char *)dest;
+	if (!src && !dest)
+		return (dest);
+	while (i < n)
+	{
+		temp2[i] = temp1[i];
+		i++;
+	}
+	return (dest);
+}
