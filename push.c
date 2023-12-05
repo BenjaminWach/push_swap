@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions.c                                     :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 11:47:25 by bwach             #+#    #+#             */
-/*   Updated: 2023/12/05 13:37:49 by bwach            ###   ########.fr       */
+/*   Created: 2023/12/05 20:56:03 by bwach             #+#    #+#             */
+/*   Updated: 2023/12/06 00:03:20 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// sa : swap a -> les deux prems de a
-int	sa(t_list **stack_a)
-{
-	t_list	*top_a;
-	t_list	*second_a;
-	int		first;
-
-	top_a = *stack_a;
-	*stack_a = first;
-	first = top_a;
-}
-
-// sb : swap b -> les deux prems de b
-// ss : les deux en meme temps
 // pa : push a -> prem de b dans le prem de a
 // pb : push b -> prem de a dans b
-// ra : rota a -> le prem devient le der
-// rb : rota b -> meme chose que b
-// rr : les deux 
-// rra : reverse rotate a -> le dernier element devient le prem
-// rrb : ....
-// rrr : les deux en meme temps
+int	ft_push(t_list **stack_src, t_list **stack_dest)
+{
+	t_list	*top_src;
+	t_list	*top_dest;
+	t_list	*tmp;
+
+	top_src = *stack_src;
+	top_dest = *stack_dest;
+	if (ft_lstsize(*stack_src) == 0)
+		return (-1);
+	tmp = top_dest;
+	top_dest = top_dest->next;
+	*stack_dest = top_dest;
+
+}
