@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:47:25 by bwach             #+#    #+#             */
-/*   Updated: 2023/12/05 20:59:23 by bwach            ###   ########.fr       */
+/*   Updated: 2023/12/06 11:27:40 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,3 @@ int	ss(t_list **stack_a, t_list **stack_b)
 	return (0);
 }
 
-// ra : rota a -> le prem devient le der
-// rb : rota b -> meme chose que b
-// rr : les deux 
-// rra : reverse rotate a -> le dernier element devient le prem
-// rrb : ....
-// rrr : les deux en meme temps
