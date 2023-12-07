@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:08:39 by bwach             #+#    #+#             */
-/*   Updated: 2023/12/05 15:08:41 by bwach            ###   ########.fr       */
+/*   Updated: 2023/12/07 10:41:51 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static t_list	init_stack(t_list **stack, int *argc, char **argv)
 static void	sorting(t_list **stack_a, t_list **stack_b)
 {
 	if (ft_lstsize(stack_a) <= 5)
-		smoll_sort(stack_a, stack_b);
+		brute_sort(stack_a, stack_b);
 	else
 		radix_merge(stack_a, stack_b);
 }

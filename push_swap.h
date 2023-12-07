@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:05:08 by bwach             #+#    #+#             */
-/*   Updated: 2023/12/06 11:31:49 by bwach            ###   ########.fr       */
+/*   Updated: 2023/12/07 11:39:01 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ typedef struct s_list
 
 /*main*/
 int		main(int argc, char *argv[]);
+
+//algo
+int		brute_sort(t_list **stack_a, t_list **stack_b);
 
 //instructions
 int		ft_swap(t_list **stack);
@@ -50,5 +53,6 @@ void	error_msg(char *msg);
 int		ft_isnum(char *str);
 void	valid_argv(int argc, char *argv[]);
 void	free_stack(t_list **stack);
+int		ft_sorted(t_list **stack_a);
 
 #endif

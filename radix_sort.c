@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:37:42 by bwach             #+#    #+#             */
-/*   Updated: 2023/12/05 14:15:13 by bwach            ###   ########.fr       */
+/*   Updated: 2023/12/07 14:24:51 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@
 static int	get_max_bit(t_list **stack_a)
 {
 	t_list	*top;
-	int		max;
+	int		max_ind;
 	int		max_bit;
 
 	top = *stack_a;
-	max = top->val_index;
+	max_ind = top->val_index;
 	max_bit = 0;
 	while (top)
 	{
-		if (top->val_index > max)
-			max = top->val_index;
+		if (top->val_index > max_ind)
+			max_ind = top->val_index;
 		top = top->val_index;
 	}
-	while ((max >> max_bit) != 0)
+	while ((max_ind >> max_bit) != 0)
 		max_bit++;
 	return (max_bit);
 }
