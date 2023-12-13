@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 10:42:16 by bwach             #+#    #+#             */
-/*   Updated: 2023/12/10 03:31:17 by bwach            ###   ########.fr       */
+/*   Updated: 2023/12/13 14:43:38 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static void	print_list(t_num *head)
 
 static void	sort_3(t_num **stack_a)
 {
+	printf("Before sorting3: stack_a = %p\n", *stack_a);
 	int	top;
 	int	med;
 	int	bot;
@@ -47,6 +48,7 @@ static void	sort_3(t_num **stack_a)
 		rra(stack_a);
 	print_list(*stack_a);
 	printf("fin de sort_3\n");
+	printf("After sorting3: stack_a = %p\n", *stack_a);
 }
 
 static void	sort_4(t_num **stack_a, t_num **stack_b)
@@ -54,19 +56,22 @@ static void	sort_4(t_num **stack_a, t_num **stack_b)
 	int	min_val;
 
 	min_val = min_value(stack_a);
-	printf("min_val = %d\n", min_val);
-	while ((*stack_a)->value != min_val)
+	while ((int)(*stack_a)->value != min_val)
 	{
 		print_list(*stack_a);
 		printf("on rentre dans ra\n");
 		ra(stack_a);
-		print_list(*stack_a);
 	}
-	printf("on rentre dans pb\n");
-	pb(stack_a, stack_b);
-	sort_last_3(stack_a);
-	while ((*stack_a)->value != min_val)
-		rra(stack_a);
+	print_list(*stack_a);
+	if (ft_lstsize_pw(*stack_a))
+	{	
+		printf("on devrait rentrer dans pb\n");
+		pb(stack_b, stack_a);
+		print_list(*stack_b);
+	}
+	if (ft_lstsize_pw(*stack_a) == 3)
+		sort_3(stack_a);
+	printf("on devrait rentrer dans pa\n");
 	pa(stack_a, stack_b);
 	print_list(*stack_a);
 	printf("fin de sort_4\n");
@@ -100,7 +105,10 @@ void	brute_sort(t_num **stack_a, t_num **stack_b)
 		sort_3(stack_a);
 	}
 	else if (size == 4)
+	{
+		printf("on entre dans le sort-4\n");
 		sort_4(stack_a, stack_b);
+	}
 	else if (size == 5)
 		sort_5(stack_a, stack_b);
 }
