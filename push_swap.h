@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:05:08 by bwach             #+#    #+#             */
-/*   Updated: 2023/12/13 13:29:45 by bwach            ###   ########.fr       */
+/*   Updated: 2023/12/13 23:06:38 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_num
 
 /*main*/
 int		main(int argc, char *argv[]);
+void	print_list(t_num *head);
 
 //algo
 void	brute_sort(t_num **stack_a, t_num **stack_b);

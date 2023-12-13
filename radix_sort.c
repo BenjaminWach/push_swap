@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:37:42 by bwach             #+#    #+#             */
-/*   Updated: 2023/12/09 19:02:15 by bwach            ###   ########.fr       */
+/*   Updated: 2023/12/13 23:05:34 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,5 @@ void	radix_merge(t_num **stack_a, t_num **stack_b)
 			pa(stack_a, stack_b);
 		i++;
 	}
+	print_list(*stack_a);
 }
