@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   brute_sort_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 13:58:30 by bwach             #+#    #+#             */
-/*   Updated: 2023/12/09 01:08:46 by bwach            ###   ########.fr       */
+/*   Created: 2023/12/08 15:34:49 by bwach             #+#    #+#             */
+/*   Updated: 2023/12/10 01:18:22 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+int	sa_and_rra(t_num **stack_a)
 {
-	int		i;
-	t_list	*tmp;
+	sa(stack_a);
+	rra(stack_a);
+	return (0);
+}
 
-	i = 0;
-	tmp = lst;
-	while (tmp)
-	{
-		i++;
-		tmp = tmp->next;
-	}
-	return (i);
+int	sa_and_ra(t_num **stack_a)
+{
+	sa(stack_a);
+	ra(stack_a);
+	return (0);
+}
+
+int	ra_and_ra(t_num **stack_a)
+{
+	ra(stack_a);
+	ra(stack_a);
+	return (0);
+}
+
+int	rra_and_rra(t_num **stack_a)
+{
+	rra(stack_a);
+	rra(stack_a);
+	return (0);
 }

@@ -6,25 +6,25 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:47:25 by bwach             #+#    #+#             */
-/*   Updated: 2023/12/06 11:27:40 by bwach            ###   ########.fr       */
+/*   Updated: 2023/12/09 14:05:59 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_swap(t_list **stack)
+int	ft_swap(t_num **stack)
 {
-	t_list	*top;
-	t_list	*next;
+	t_num	*top;
+	t_num	*next;
 	int		tmp_val;
 	int		tmp_i;
 
+	if (ft_lstsize_pw(*stack) < 2)
+		return (-1);
 	top = *stack;
 	next = top->next;
 	if (!top && !next)
 		error_msg("Error with SA");
-	if (ft_lstsize(*stack) < 2)
-		return (-1);
 	tmp_val = top->value;
 	tmp_i = top->val_index;
 	top->value = next->value;
@@ -35,7 +35,7 @@ int	ft_swap(t_list **stack)
 }
 
 // sa : swap a -> les deux prems de a
-int	sa(t_list **stack_a)
+int	sa(t_num **stack_a)
 {
 	if (ft_swap(stack_a) == -1)
 		return (-1);
@@ -44,7 +44,7 @@ int	sa(t_list **stack_a)
 }
 
 // sb : swap b -> les deux prems de b
-int	sb(t_list **stack_b)
+int	sb(t_num **stack_b)
 {
 	if (ft_swap(stack_b) == -1)
 		return (-1);
@@ -53,13 +53,12 @@ int	sb(t_list **stack_b)
 }
 
 // ss : les deux en meme temps
-int	ss(t_list **stack_a, t_list **stack_b)
+int	ss(t_num **stack_a, t_num **stack_b)
 {
-	if (ft_lstsize(*stack_a) < 2 || ft_lstsize(*stack_b) < 2)
+	if (ft_lstsize_pw(*stack_a) < 2 || ft_lstsize_pw(*stack_b) < 2)
 		return (-1);
 	ft_swap(stack_a);
 	ft_swap(stack_b);
 	ft_putendl_fd("ss", 1);
 	return (0);
 }
-

@@ -6,17 +6,24 @@
 #    By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 11:02:40 by bwach             #+#    #+#              #
-#    Updated: 2023/11/28 13:21:17 by bwach            ###   ########.fr        #
+#    Updated: 2023/12/09 12:12:46 by bwach            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
+NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 LIBFT_DIR = libft
 
 SRC_FILES = push_swap.c\
+			valid_argv.c\
+			all_utils.c\
+			all_utils2.c\
+			brute_sort_utils.c\
+			push.c rotate.c swap.c reverse_rot.c\
+			give_index.c\
+			radix_sort.c brute_sort.c\
 
 OBJ = $(SRC_FILES:.c=.o)
 
@@ -24,9 +31,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C $(LIBFT_DIR)
-	@cp ${LIBFT_DIR}/libft.a .
-	@mv libft.a $(NAME)
-	ar rcs $(NAME) $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -L $(LIBFT_DIR) -lft	
 	@echo "Compilation done"
 
 %.o : %.c

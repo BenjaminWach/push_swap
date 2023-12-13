@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 23:17:36 by bwach             #+#    #+#             */
-/*   Updated: 2023/11/29 14:05:57 by bwach            ###   ########.fr       */
+/*   Updated: 2023/12/09 13:17:50 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	error_msg(char *msg)
 {
-	write(1, "Error\n", 6);
+	ft_putendl_fd(msg, 1);
 	exit(0);
 }
 
-static void	ft_free_str(char **str)
+void	ft_free_str(char **str)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 		free(str[i++]);
 }
 
@@ -56,26 +56,29 @@ static int	ft_valid_num(int num, char *arg[], int pos)
 
 void	valid_argv(int argc, char *argv[])
 {
-	int				i;
-	unsigned int	tmp;
+	int				i;	
 	char			**arg;
+	long			tmp;
 
+	i = 0;
 	if (argc == 2)
-	// si on a une str on la split avec des espaces
 		arg = ft_split(argv[1], ' ');
-	i = 1;
-	arg = argv;
-	while (arg[i]) //dans la boucle: on gere tous les cas d'erreurs
+	else
 	{
-		tmp = ft_atoi(arg[i]); //on change les chars en int
+		i = 1;
+		arg = argv;
+	}
+	while (arg[i])
+	{
+		tmp = ft_atoi(arg[i]);
 		if (tmp < -2147483648 || tmp > 2147483647)
 			error_msg("Error");
-		else if (!ft_isnum(arg[i])) //on check si c'est un nombre
+		if (!ft_isnum(arg[i]))
 			error_msg("Error");
-		else if (ft_valid_num(tmp, arg, i))
+		if (ft_valid_num(tmp, arg, i))
 			error_msg("Error");
 		i++;
 	}
-	if (argc == 2) //on libere arg
+	if (argc == 2)
 		ft_free_str(arg);
 }
