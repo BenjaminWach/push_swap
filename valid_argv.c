@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 23:17:36 by bwach             #+#    #+#             */
-/*   Updated: 2023/12/09 13:17:50 by bwach            ###   ########.fr       */
+/*   Updated: 2023/12/14 15:02:04 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	error_msg(char *msg)
 {
-	ft_putendl_fd(msg, 1);
-	exit(0);
+	ft_putendl_fd(msg, 2);
+	exit(1);
 }
 
 void	ft_free_str(char **str)
@@ -28,13 +28,17 @@ void	ft_free_str(char **str)
 }
 
 //Check if number
-int	ft_isnum(char *str)
+static long long int	ft_isnum(char *str)
 {
 	int	i;
 
 	i = 0;
 	if (str[i] == '-')
+	{
 		i++;
+		if (str[i] == '\0')
+			return (0);
+	}
 	while (str[i])
 		if (!ft_isdigit(str[i++]))
 			return (0);
@@ -47,7 +51,7 @@ static int	ft_valid_num(int num, char *arg[], int pos)
 	pos++;
 	while (arg[pos])
 	{
-		if (ft_atoi(arg[pos]) == num)
+		if (ft_atoi_pw(arg[pos]) == num)
 			return (1);
 		pos++;
 	}
@@ -70,7 +74,7 @@ void	valid_argv(int argc, char *argv[])
 	}
 	while (arg[i])
 	{
-		tmp = ft_atoi(arg[i]);
+		tmp = ft_atoi_pw(arg[i]);
 		if (tmp < -2147483648 || tmp > 2147483647)
 			error_msg("Error");
 		if (!ft_isnum(arg[i]))

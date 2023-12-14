@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 01:02:38 by bwach             #+#    #+#             */
-/*   Updated: 2023/12/13 14:41:51 by bwach            ###   ########.fr       */
+/*   Updated: 2023/12/14 14:52:40 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,29 @@ t_num	*ft_lstlast_pw(t_num *top)
 	while (top && top->next)
 		top = top->next;
 	return (top);
+}
+
+long long int	ft_atoi_pw(const char *str)
+{
+	size_t				i;
+	size_t				sign;
+	long long int		result;
+
+	i = 0;
+	sign = 1;
+	result = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == 32))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (ft_isdigit(str[i]))
+	{
+		result = result * 10 + (str[i] - 48);
+		i++;
+	}
+	return (result * sign);
 }

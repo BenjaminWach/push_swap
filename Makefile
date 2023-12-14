@@ -6,7 +6,7 @@
 #    By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 11:02:40 by bwach             #+#    #+#              #
-#    Updated: 2023/12/09 12:12:46 by bwach            ###   ########.fr        #
+#    Updated: 2023/12/14 15:39:42 by bwach            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRC_FILES = push_swap.c\
 			valid_argv.c\
 			all_utils.c\
 			all_utils2.c\
-			brute_sort_utils.c\
+			brute_sort_utils.c brute_sort_utils2.c\
 			push.c rotate.c swap.c reverse_rot.c\
 			give_index.c\
 			radix_sort.c brute_sort.c\

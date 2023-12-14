@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:22:27 by bwach             #+#    #+#             */
-/*   Updated: 2023/12/13 13:37:53 by bwach            ###   ########.fr       */
+/*   Updated: 2023/12/14 15:17:51 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,15 @@ int	ft_sorted(t_num **stack_a)
 	return (1);
 }
 
-int	min_value(t_num **stack)
+long long int	min_value(t_num **stack)
 {
-	t_num	*current;
-	int		min_val;
+	t_num				*current;
+	long long int		min_val;
 
 	current = *stack;
 	min_val = current->value;
+	if (current->value == -2147483648)
+		return (min_val);
 	while (current)
 	{
 		if (current->value < min_val)

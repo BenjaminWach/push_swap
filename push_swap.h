@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:05:08 by bwach             #+#    #+#             */
-/*   Updated: 2023/12/13 23:06:38 by bwach            ###   ########.fr       */
+/*   Updated: 2023/12/14 15:38:54 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@ void	print_list(t_num *head);
 //algo
 void	brute_sort(t_num **stack_a, t_num **stack_b);
 void	radix_merge(t_num **stack_a, t_num **stack_b);
-int		min_value(t_num **stack);
+long long int		min_value(t_num **stack);
 void	sort_last_3(t_num **stack_a);
+void	push_min(t_num **stack_a, t_num **stack_b);
 
 //f**k
 int		sa_and_rra(t_num **stack_a);
@@ -60,7 +61,6 @@ int		rrr(t_num **stack_a, t_num **stack_b);
 
 //utils
 void	error_msg(char *msg);
-int		ft_isnum(char *str);
 void	valid_argv(int argc, char *argv[]);
 void	free_stack(t_num **stack);
 int		ft_sorted(t_num **stack_a);
@@ -70,5 +70,7 @@ int		ft_lstsize_pw(t_num *head);
 void	ft_lstadd_back_pw(t_num **lst, t_num *new);
 void	give_index_stack(t_num **stack);
 void	ft_free_str(char **str);
+long long int	ft_atoi_pw(const char *str);
+int		find_position(t_num **stack, int value);
 
 #endif

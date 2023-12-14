@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:08:39 by bwach             #+#    #+#             */
-/*   Updated: 2023/12/13 22:58:37 by bwach            ###   ########.fr       */
+/*   Updated: 2023/12/14 14:53:48 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,9 @@ static void	init_stack(t_num **stack, int argc, char **argv)
 static void	sorting(t_num **stack_a, t_num **stack_b)
 {
 	if (ft_lstsize_pw(*stack_a) <= 5)
-	{
-		printf("Appel de brute_sort\n");
 		brute_sort(stack_a, stack_b);
-	}
 	else
-	{
-		printf("Appel de radix_sort\n");
 		radix_merge(stack_a, stack_b);
-	}
 }
 
 int	main(int argc, char *argv[])
@@ -57,7 +51,7 @@ int	main(int argc, char *argv[])
 	t_num	**stack_b;
 
 	if (argc < 2)
-		return (-1);
+		error_msg("Error\n");
 	stack_a = (t_num **)malloc(sizeof(t_num *));
 	stack_b = (t_num **)malloc(sizeof(t_num *));
 	*stack_a = NULL;
@@ -66,14 +60,11 @@ int	main(int argc, char *argv[])
 	init_stack(stack_a, argc, argv);
 	if (ft_sorted(stack_a))
 	{
-		printf("La liste est deja triee\n");
 		free_stack(stack_a);
 		free_stack(stack_b);
 		return (0);
 	}
-	printf("Avant sorting:\n");
 	sorting(stack_a, stack_b);
-	printf("Apres sorting:\n");
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);
