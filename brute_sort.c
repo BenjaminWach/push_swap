@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 10:42:16 by bwach             #+#    #+#             */
-/*   Updated: 2023/12/14 15:58:24 by bwach            ###   ########.fr       */
+/*   Updated: 2023/12/15 19:09:42 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ static void	sort_4(t_num **stack_a, t_num **stack_b)
 {
 	int	min_val;
 
+	if (!stack_a || !stack_b)
+		return ;
 	min_val = min_value(stack_a);
 	while ((int)(*stack_a)->value != min_val)
 		ra(stack_a);
@@ -58,26 +60,10 @@ static void	sort_4(t_num **stack_a, t_num **stack_b)
 	pa(stack_a, stack_b);
 }
 
-/*static void	sort_5(t_num **stack_a, t_num **stack_b)
-{
-	int	min_val;
-
-	min_val = min_value(stack_a);
-	while ((int)(*stack_a)->value != min_val)
-		ra(stack_a);
-	pb(stack_b, stack_a);
-	min_val = min_value(stack_a);
-	while ((int)(*stack_a)->value != min_val)
-		ra(stack_a);
-	pb(stack_b, stack_a);
-	sort_3(stack_a);
-	pa(stack_a, stack_b);
-	pa(stack_a, stack_b);
-	//print_list(*stack_a);
-}*/
-
 static void	sort_5(t_num **stack_a, t_num **stack_b)
 {
+	if (!stack_a || !stack_b)
+		return ;
 	push_min(stack_a, stack_b);
 	push_min(stack_a, stack_b);
 	sort_3(stack_a);
@@ -100,6 +86,4 @@ void	brute_sort(t_num **stack_a, t_num **stack_b)
 		sort_4(stack_a, stack_b);
 	else if (size == 5)
 		sort_5(stack_a, stack_b);
-	free(stack_a);
-	free(stack_b);
 }

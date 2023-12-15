@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 23:17:36 by bwach             #+#    #+#             */
-/*   Updated: 2023/12/14 15:02:04 by bwach            ###   ########.fr       */
+/*   Updated: 2023/12/15 01:15:45 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_free_str(char **str)
 	i = 0;
 	while (str[i])
 		free(str[i++]);
+	free(str);
 }
 
 //Check if number

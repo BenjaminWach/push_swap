@@ -6,13 +6,13 @@
 #    By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 11:02:40 by bwach             #+#    #+#              #
-#    Updated: 2023/12/14 15:39:42 by bwach            ###   ########.fr        #
+#    Updated: 2023/12/15 19:09:15 by bwach            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 RM = rm -f
 LIBFT_DIR = libft
 
@@ -24,7 +24,7 @@ SRC_FILES = push_swap.c\
 			push.c rotate.c swap.c reverse_rot.c\
 			give_index.c\
 			radix_sort.c brute_sort.c\
-
+			
 OBJ = $(SRC_FILES:.c=.o)
 
 all: $(NAME)
