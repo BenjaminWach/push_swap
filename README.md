@@ -38,9 +38,9 @@ Most performant algo out here for this exercice:
 
 How does mine works:  
 --------------------
-As i parse arguments, i allocate them in nodes with indexes (from the smallest int to the biggest: as Radix_sort works with non-negatives ints) in a structure,  
-to create a linked list to reproduce a "stack" (the project ask you to work with only two stacks).  
-I then sort each index with bits operators (>> 1 : move 1 bit to the right) / ('x' & 1 : if x = 0, its give me 0, x = 1 will give me 1).  
+As i parse arguments, i allocate them in nodes with indexes (from the smallest int to the biggest: as Radix_sort works with non-negatives ints)  
+in a structure, to create a linked list to reproduce a "stack" (the project ask you to work with only two stacks).    
+I then sort each index with bits operators (>> 1 : move 1 bit to the right) / ('x' & 1 : if x = 0, its give me 0, x = 1 will give me 1).   
 In resume i push 0 or 1 to the second stack, then i merge both stacks together and i redo the processus from the least significant bit to the most (or the number of bits that constitute the biggest int):  
 
 example:   
