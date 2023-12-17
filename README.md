@@ -3,7 +3,7 @@ Hello,
 Let me introduce you to the fascinating world of algorithms. Here we have a "game" or a project for l'ecole 42.
 The goal is to sort some integers with the least amount of limited instructions:
 
-Code	| Instruction	                        |          Action
+Code	| Instruction	                        |          Action                                            |
 ---------------------------------------------------------------------------------------------------------|
 sa    | swap a	                            | swaps the 2 top elements of stack a                        |
 ---------------------------------------------------------------------------------------------------------|
