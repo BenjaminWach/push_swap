@@ -4,7 +4,7 @@ Let me introduce you to the fascinating world of algorithms. Here we have a "gam
 The goal is to sort some integers with the least amount of limited instructions:
 
 Code	| Instruction	                        |          Action                                            |
----------------------------------------------------------------------------------------------------------|
+------|-------------------------------------|------------------------------------------------------------|
 sa    | swap a	                            | swaps the 2 top elements of stack a                        |
 sb	  | swap b	                            | swaps the 2 top elements of stack b                        |
 ss	  | swap a + swap b	                    | both sa and sb                                             |     
