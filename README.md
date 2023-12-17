@@ -22,7 +22,7 @@ rrr	  | reverse rotate a + reverse rotate b	| both rra and rrb                  
 There ar a lot of interestings methods out of here:
 but i choose to explore one in particular : the RADIX_SORT, because of its simplicity.
 
-here some articles for you to understand it better:
+Here some articles for you to understand it better:
  - https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e
  * https://brilliant.org/wiki/radix-sort/
 
