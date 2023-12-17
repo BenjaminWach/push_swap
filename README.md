@@ -23,8 +23,8 @@ There ar a lot of interestings methods out of here:
 but i choose to explore one in particular : the RADIX_SORT, because of its simplicity.
 
 here some articles for you to understand it better:
-https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e
-https://brilliant.org/wiki/radix-sort/
+ - https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e
+ * https://brilliant.org/wiki/radix-sort/
 
 How does mine works: 
 As i parse arguments, i allocate them in nodes with indexes (from the smallest int to the biggest: as Radix_sort works with non-negatives ints) in a structure,
