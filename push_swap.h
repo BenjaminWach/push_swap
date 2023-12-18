@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:05:08 by bwach             #+#    #+#             */
-/*   Updated: 2023/12/15 19:18:45 by bwach            ###   ########.fr       */
+/*   Updated: 2023/12/16 18:42:19 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,12 @@ typedef struct s_num
 
 /*main*/
 int				main(int argc, char *argv[]);
+//void			print_stack_index(t_num *head);
 void			print_list(t_num *head);
 
 //algo
 void			brute_sort(t_num **stack_a, t_num **stack_b);
-void			radix_merge(t_num **stack_a, t_num **stack_b);
+void			radix_recur(t_num **stack_a, t_num **stack_b, int bit);
 void			push_min(t_num **stack_a, t_num **stack_b);
 
 //f**k

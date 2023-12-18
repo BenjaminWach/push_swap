@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:08:39 by bwach             #+#    #+#             */
-/*   Updated: 2023/12/15 19:09:46 by bwach            ###   ########.fr       */
+/*   Updated: 2023/12/18 03:27:22 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,13 @@ static void	init_stack(t_num **stack, int argc, char **argv)
 
 static void	sorting(t_num **stack_a, t_num **stack_b)
 {
-	if (ft_lstsize_pw(*stack_a) <= 5)
+	int	size;
+
+	size = ft_lstsize_pw(*stack_a);
+	if (size <= 5)
 		brute_sort(stack_a, stack_b);
 	else
-		radix_merge(stack_a, stack_b);
+		radix_recur(stack_a, stack_b, 0);
 }
 
 int	main(int argc, char *argv[])
@@ -50,8 +53,8 @@ int	main(int argc, char *argv[])
 	t_num	**stack_a;
 	t_num	**stack_b;
 
-	if (argc < 2)
-		error_msg("Error\n");
+	if (argc < 2 || argv[1][0] == '\0')
+		error_msg("Error");
 	stack_a = (t_num **)malloc(sizeof(t_num *));
 	stack_b = (t_num **)malloc(sizeof(t_num *));
 	*stack_a = NULL;

@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 22:33:03 by bwach             #+#    #+#             */
-/*   Updated: 2023/10/31 11:10:49 by bwach            ###   ########.fr       */
+/*   Updated: 2023/12/18 03:23:36 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	**ft_split(char const *s, char c)
 
 	split = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (!s || !split)
-		return (0);
+		return (NULL);
 	i = 0;
 	while (*s)
 	{

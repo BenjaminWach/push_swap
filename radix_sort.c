@@ -6,7 +6,7 @@
 /*   By: bwach <bwach@student.42lausanne.ch>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:37:42 by bwach             #+#    #+#             */
-/*   Updated: 2023/12/15 01:45:10 by bwach            ###   ########.fr       */
+/*   Updated: 2023/12/16 18:42:05 by bwach            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,31 +34,26 @@ static int	get_max_bit(t_num **stack_a)
 	return (max_bit);
 }
 
-void	radix_merge(t_num **stack_a, t_num **stack_b)
+void	radix_recur(t_num **stack_a, t_num **stack_b, int bit)
 {
 	t_num	*top_a;
 	int		i;
-	int		j;
 	int		size_list;
-	int		ms_bit;
 
+	if (bit > get_max_bit(stack_a))
+		return ;
 	top_a = *stack_a;
 	size_list = ft_lstsize_pw(top_a);
-	ms_bit = get_max_bit(stack_a);
 	i = 0;
-	while (i < ms_bit)
+	while (i++ < size_list)
 	{
-		j = 0;
-		while (j++ < size_list)
-		{
-			top_a = *stack_a;
-			if (((top_a->val_index >> i) & 1) == 1)
-				ra(stack_a);
-			else
-				pb(stack_b, stack_a);
-		}
-		while (ft_lstsize_pw(*stack_b) > 0)
-			pa(stack_a, stack_b);
-		i++;
+		top_a = *stack_a;
+		if (((top_a->val_index >> bit) & 1) == 1)
+			ra(stack_a);
+		else if (!ft_sorted(stack_a))
+			pb(stack_b, stack_a);
 	}
+	while (ft_lstsize_pw(*stack_b) > 0)
+		pa(stack_a, stack_b);
+	radix_recur(stack_a, stack_b, bit + 1);
 }
